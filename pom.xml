@@ -6,6 +6,9 @@
 	<artifactId>rename-maven-plugin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>Plugin for copying specific files at build time</description>
+	<url>https://github.com/luversof/rename-maven-plugin</url>
 
 	<inceptionYear>2021</inceptionYear>
 	<licenses>
@@ -15,6 +18,19 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/luversof/rename-maven-plugin.git</connection>
+		<developerConnection>scm:git:ssh://github.com:luversof/rename-maven-plugin.git</developerConnection>
+		<url>http://github.com/luversof/rename-maven-plugin/tree/main</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<name>luversof</name>
+			<email>luversof@hanmail.net</email>
+		</developer>
+	</developers>
 
 	<properties>
 		<!-- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
