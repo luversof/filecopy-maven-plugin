@@ -45,9 +45,10 @@ public class RenameMojo extends AbstractMojo {
 			return;
 		}
 		
+		var basePath = new File(project.getBasedir().getPath() + renameInfo.getBasePath());
 		for (RenameFileInfo renameFileInfo : renameInfo.getRenameFileInfos()) {
 			getLog().info("target renameFileInfo : " + renameFileInfo);
-			findFile(renameFileInfo, project.getBasedir());
+			findFile(renameFileInfo, basePath);
 		}
 	}
 
@@ -60,6 +61,7 @@ public class RenameMojo extends AbstractMojo {
 					findFile(renameFileInfo, fil);
 					continue;
 				} 
+				
 				var matcher = regex.matcher(fil.getName());
 				if (matcher.matches()) {
 					getLog().debug("matches path : " + fil.getPath());

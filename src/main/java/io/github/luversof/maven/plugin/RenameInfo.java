@@ -9,8 +9,8 @@ import lombok.Data;
 @Data
 public class RenameInfo {
 
-	@Parameter(defaultValue = "src/main/")
-	private String basePath = "src/main/";
+	@Parameter(defaultValue = "/src/main")
+	private String basePath = "/src/main/";
 
 	private List<RenameFileInfo> renameFileInfos;
 	
