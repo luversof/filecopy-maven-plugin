@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.luversof</groupId>
-	<artifactId>rename-maven-plugin</artifactId>
+	<artifactId>filecopy-maven-plugin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>Plugin for copying specific files at build time</description>
-	<url>https://github.com/luversof/rename-maven-plugin</url>
+	<url>https://github.com/luversof/filecopy-maven-plugin</url>
 
 	<inceptionYear>2021</inceptionYear>
 	<licenses>
@@ -20,9 +20,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git://github.com/luversof/rename-maven-plugin.git</connection>
-		<developerConnection>scm:git:ssh://github.com:luversof/rename-maven-plugin.git</developerConnection>
-		<url>http://github.com/luversof/rename-maven-plugin/tree/main</url>
+		<connection>scm:git:git://github.com/luversof/filecopy-maven-plugin.git</connection>
+		<developerConnection>scm:git:ssh://github.com:luversof/filecopy-maven-plugin.git</developerConnection>
+		<url>http://github.com/luversof/filecopy-maven-plugin/tree/main</url>
 	</scm>
 
 	<developers>

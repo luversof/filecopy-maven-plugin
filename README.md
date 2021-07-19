@@ -1,28 +1,26 @@
-# rename-maven-plugin
+# filecopy-maven-plugin
 
 Plugin for copying specific files at build time
 
 ```pom.xml
 <plugin>
     <groupId>io.github.luversof</groupId>
-    <artifactId>rename-maven-plugin</artifactId>
+    <artifactId>filecopy-maven-plugin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <executions>
         <execution>
             <id>rename</id>
             <phase>generate-sources</phase>
             <goals>
-                <goal>rename</goal>
+                <goal>filecopy</goal>
             </goals>
             <configuration>
-                <renameInfo>
-                    <renameFileInfos>
-                        <renameFileInfo>
-                            <sourceRegex>^([a-z]*)(_zh-TW.properties)$</sourceRegex>
-                            <targetRegex>$1_zh.properties</targetRegex>
-                        </renameFileInfo>
-                    </renameFileInfos>
-                </renameInfo>
+                <fileInfos>
+                    <fileInfo>
+                        <sourceRegex>^([a-z]*)(_zh-TW.properties)$</sourceRegex>
+                        <targetRegex>$1_zh.properties</targetRegex>
+                    </fileInfo>
+                </fileInfos>
             </configuration>
         </execution>
     </executions>

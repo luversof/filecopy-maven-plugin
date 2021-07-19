@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.apache.maven.plugin.AbstractMojo;
@@ -24,51 +25,53 @@ import org.apache.maven.project.MavenProject;
  * @author bluesky
  *
  */
-@Mojo(name = "rename", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
-public class RenameMojo extends AbstractMojo {
+@Mojo(name = "filecopy", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
+public class FileCopyMojo extends AbstractMojo {
 
 	@Component
 	private MavenProject project;
 	
 	@Parameter(required = false)
-	private RenameInfo renameInfo;
+	private CopyInfo copyInfo;
+	
+	@Parameter(required = false)
+	private List<FileInfo> fileInfos;
 
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		if (renameInfo == null) {
-			getLog().info("renameInfo is null");
-			return;
+		if (copyInfo == null) {
+			copyInfo = new CopyInfo();
 		}
 		
-		if (renameInfo.getRenameFileInfos() == null) {
+		if (fileInfos == null) {
 			getLog().info("renameFileInfoList is null");
 			return;
 		}
 		
-		var basePath = new File(project.getBasedir().getPath() + renameInfo.getBasePath());
-		for (RenameFileInfo renameFileInfo : renameInfo.getRenameFileInfos()) {
-			getLog().info("target renameFileInfo : " + renameFileInfo);
-			findFile(renameFileInfo, basePath);
+		var basePath = new File(project.getBasedir().getPath() + copyInfo.getBasePath());
+		for (FileInfo fileInfo : fileInfos) {
+			getLog().info("target fileInfo : " + fileInfo);
+			findFile(fileInfo, basePath);
 		}
 	}
 
-	public void findFile(RenameFileInfo renameFileInfo, File file) {
-		var regex = Pattern.compile(renameFileInfo.getSourceRegex());
+	public void findFile(FileInfo fileInfo, File file) {
+		var regex = Pattern.compile(fileInfo.getSourceRegex());
 		var list = file.listFiles();
 		if (list != null)
 			for (var fil : list) {
 				if (fil.isDirectory()) {
-					findFile(renameFileInfo, fil);
+					findFile(fileInfo, fil);
 					continue;
 				} 
 				
 				var matcher = regex.matcher(fil.getName());
 				if (matcher.matches()) {
 					getLog().debug("matches path : " + fil.getPath());
-					if (renameFileInfo.getTargetRegex() == null) {
+					if (fileInfo.getTargetRegex() == null) {
 						getLog().debug("targetRegex is null");
 					} else {
-						var targetFileName = matcher.replaceAll(renameFileInfo.getTargetRegex());
+						var targetFileName = matcher.replaceAll(fileInfo.getTargetRegex());
 						Path source = Paths.get(fil.getPath());
 						Path target = Paths.get(fil.getParent(), targetFileName);
 						getLog().info("copy file : " + fil.getPath() + " to " + targetFileName);

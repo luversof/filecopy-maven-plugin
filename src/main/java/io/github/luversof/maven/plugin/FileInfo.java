@@ -3,7 +3,7 @@ package io.github.luversof.maven.plugin;
 import lombok.Data;
 
 @Data
-public class RenameFileInfo {
+public class FileInfo {
 	
 	private String sourceRegex;
 	

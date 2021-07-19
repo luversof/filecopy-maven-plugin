@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.Test;
 
-class RenameMojoTest {
+class FileCopyMojoTest {
 
 	@Test
 	void test() {
