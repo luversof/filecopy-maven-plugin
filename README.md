@@ -9,7 +9,7 @@ Plugin for copying specific files at build time
     <version>1.0.0</version>
     <executions>
         <execution>
-            <id>rename</id>
+            <id>filecopy</id>
             <phase>generate-sources</phase>
             <goals>
                 <goal>filecopy</goal>
@@ -17,7 +17,7 @@ Plugin for copying specific files at build time
             <configuration>
                 <fileInfos>
                     <fileInfo>
-                        <sourceRegex>^([a-z]*)(_zh-TW.properties)$</sourceRegex>
+                        <sourceRegex>^([a-zA-Z]*)(_zh-TW.properties)$</sourceRegex>
                         <targetRegex>$1_zh.properties</targetRegex>
                     </fileInfo>
                 </fileInfos>
