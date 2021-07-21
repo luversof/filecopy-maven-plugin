@@ -6,7 +6,7 @@ Plugin for copying specific files at build time
 <plugin>
     <groupId>io.github.luversof</groupId>
     <artifactId>filecopy-maven-plugin</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <executions>
         <execution>
             <id>filecopy</id>
