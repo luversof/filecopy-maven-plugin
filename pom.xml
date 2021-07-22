@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.luversof</groupId>
 	<artifactId>filecopy-maven-plugin</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>Plugin for copying specific files at build time</description>
